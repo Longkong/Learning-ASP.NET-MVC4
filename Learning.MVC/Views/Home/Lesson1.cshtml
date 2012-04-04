@@ -1,8 +1,8 @@
 ﻿@{
-    ViewBag.Title = "Lesson1";
+    ViewBag.Title = "Lesson 1 HTML";
 }
 
-<h2>Lesson1</h2>
+<h2>Lesson 1 </h2>
 <p>บทนี้เราจะคุยเรื่อง html เกริ่นๆหน่อยนะ</p>
 
 <h3>HTML</h3>
@@ -24,16 +24,16 @@
 <h3>HTML Documents = Web Pages</h3>
 <p>Web browser เช่น FireFox / Ie ทำหน้าที่แปลง HTML Documents โดยจะไม่แสดง tag แต่จะแปลง tag ต่างๆให้เป็นไปตามรูปแบบที่กำหนดไว้ใน standard</p>
 
-<p>ให้นักเรียนลองเข้าไปดูใน <a href="http://www.w3schools.com/html/html_quick.asp">http://www.w3schools.com/html/html_quick.asp</a> แล้วเอา tag ต่างๆมาลองเล่นใน form ด้านล่างนะจ๊ะ</p>
+<p>ให้นักเรียนลองเข้าไปดูใน <a target="_blank" href="http://www.w3schools.com/html/html_quick.asp">http://www.w3schools.com/html/html_quick.asp</a> แล้วเอา tag ต่างๆมาลองเล่นใน form ด้านล่างนะจ๊ะ</p>
 
 @using(Html.BeginForm())
 {
-  <div style="width: 800px;padding:10px;background:#eee;">
+  <div style="width: 800px;padding:10px;background:#eee;overflow:visible;">
     <p><input type="submit" value="Test"/></p>
     <div style="float:left;width:350px;background: #fff;margin:10px;">
         @Html.TextArea("content", ViewBag.Content as string, 10, 20, new {style = "width:343px;height:170px;"})
     </div>
-    <div style="float:left;width:350px;background: #fff;margin:10px;height:160px;padding:10px;">
+    <div style="float:left;width:350px;background: #fff;margin:10px;min-height:160px;padding:10px;overflow: scroll;">
         @Html.Raw(ViewBag.Content)
     </div>
     <div style="clear: both;"></div>
