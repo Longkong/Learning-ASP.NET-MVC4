@@ -30,6 +30,12 @@ namespace Learning.MVC
       );
 
       routes.MapRoute(
+          name: "Lesson",
+          url: "{action}",
+          defaults: new { controller = "Home", id = UrlParameter.Optional }
+      );
+
+      routes.MapRoute(
           name: "Default",
           url: "{controller}/{action}/{id}",
           defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
