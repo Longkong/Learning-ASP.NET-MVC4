@@ -38,5 +38,10 @@ namespace Learning.MVC.Controllers
       return View();
     }
 
+    public ActionResult Lesson3()
+    {
+      return View();
+    }
+
   }
 }
