@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Learning ASP.NET MVC 4 | Lesson 2 - CSS";
+}
+
+<style>
+    p 
+    {
+        width: 800px;
+    }
+    p a 
+    {
+        margin-right: 25px;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var displays = $("div.display");
+        $("a").click(function (event) {
+            var id = $(this).attr('id');
+            var index = parseInt(id.substring(1, 2));
+            displays.hide();
+            $(displays[index]).show();
+            return false;
+        });
+    });
+</script>
+
+<a href="@Url.Action("Index")">กลับไปหน้าสารบัญ</a>
+
+<h2>Lesson 2 - CSS</h2>
+<p>บทนี้เราจะคุยเรื่อง CSS เบื้องต้น</p>
+
+<h3>CSS</h3>
+<ul>
+    <li>CSS ย่อมาจาก <strong>C</strong>ascading <strong>S</strong>tyle <strong>S</strong>heets</li>
+    <li>Style ใน CSS เป็นตัวบอก browser ว่า จะแสดงแต่ละ HTML element อย่างไร</li>
+</ul>
+
+<h3>CSS แก้ปัญหาอะไร</h3>
+<p>HTML ไม่ได้ถูกสร้างมาเพื่อจัดรูปแบบเอกสาร tag ต่างๆใน HTML มีไว้เพื่อบ่งบอกเนื้อหาข้างในเช่น</p>
+
+<p>&lt;h1&gt;h คือหัวข้อ&lt;/h1&gt;</p>
+
+<p>&lt;p&gt;p คือ paragraph&lt;/p&gt;</p>
+
+<p>เพื่อความอ่านง่าย Browser จึงจัดรูปแบบการแสดงผล tag ต่างๆให้ตามประเภท tag เช่น h1 เป็นตัวเข้มใหญ่ หรือ ul/li แสดงเป็น list มีกลมๆอยู่ข้างหน้า</p>
+
+<h1>&lt;h1&gt;h คือหัวข้อ&lt;/h1&gt;</h1>
+
+<ul>
+    <li>&lt;li&gt;li คือ list item&lt;/li&gt;</li>
+    <li>&lt;li&gt;li คือ list item&lt;/li&gt;</li>
+</ul>
+
+<p>เมื่อก่อนก็พอใจกันประมาณนี้ แต่ต่อมาเมื่ออินเตอร์เน็ทเกิดการแพร่หลาย และเริ่มนำมาใช้กับการทำเว็บโปรโมทโฆษณาบริษัท ก็เริ่มอยากทำให้มี design ได้เหมือนการทำหนังสือ มีสีสัน มีการทำ font เล็กใหญ่ tag ประเภท &lt;<font size="20" color="red">f</font><font color="green">o</font><font color="blue">n</font><font size="30" color="yellow">t</font>&gt; จึงเกิดขึ้นมา</p>
+<p>หน้าเว็บก็มีสีสัน มี style กันด้วยการใส่ tag ต่างๆลงไป แต่เมื่อเว็บมีขนาดใหญ่ขึ้น การดูแลรักษา หรือการปรับเปลี่ยนก็จะเริ่มยากและกินเวลามาก ประกอบกับแนวคิดใหม่ๆเรื่องว่าเราไม่ควรเอา tag ที่ไม่บ่งบอกเนื้อหามาใส่ใน HTML เพียงเพื่อให้เกิดสีสัน</p>
+<p>CSS จึงถือกำเนิดขึ้น</p>
+<p>tag ที่ใช้จัดรูปแบบโดยไม่บอกเนื้อหา เช่น &lt;font&gt; ก็ถูกนำออกไปในที่สุด (ตอนนี้ tag font ตก standard ไปแล้ว) โดยเปลี่ยนมาใช้ CSS ที่แยกออกไปจาก HTML และสามารถแก้ไขปรับเปลี่ยน style ได้ โดยไม่กระทบส่วนเนื้อหา</p>
+<p>ที่สำคัญคือ เราใช้ CSS ไฟล์เดียว หรือไม่กีไฟล์ ในการควบคุมหน้าตาของเว็บไซต์ที่มีหลายๆหน้าให้ไปในทางเดียวกันได้</p>
+
+<p>ให้นักเรียนลองดูด้านล่างนี้ คลิกๆเล่นแล้วสังเกตการเปลี่ยนแปลงของหน้าตาด้วย CSS (HTML ไม่ได้เปลี่ยนเลย แค่เปลี่ยน CSS เท่านั้น หน้าตาก็มีได้หลากหลาย)</p>
+
+<div style="padding:10px;background:#eee;overflow:visible;">
+<p><a href="#" id="s0">ไม่มี CSS</a><a href="#" id="s1">Style 1</a><a href="#" id="s2">Style 2</a><a href="#" id="s3">Style 3</a></p>
+<div id="d0" class="display" style="display: block;">
+    <div style="float:left;width:500px;background: #fff;margin:10px;">
+        <iframe src="@Url.Content("~/Content/lesson2/0.html")" style="width: 100%;height:630px;"></iframe>
+    </div>
+    <div style="float:left;width:500px;background: #fff;margin:10px;padding:10px;">
+        <h1>NO STYLE</h1>
+    </div>
+</div>
+<div id="d1" class="display" style="display: none;">
+    <div style="float:left;width:500px;background: #fff;margin:10px;">
+        <iframe src="@Url.Content("~/Content/lesson2/1.html")" style="width: 100%;height:630px;"></iframe>
+    </div>
+    <div style="float:left;width:500px;background: #fff;margin:10px;padding:10px;">
+        <iframe src="@Url.Content("~/Content/lesson2/1.css")" style="width: 100%;height:630px;"></iframe>
+    </div>
+</div>
+<div id="d2" class="display" style="display: none;">
+    <div style="float:left;width:500px;background: #fff;margin:10px;">
+        <iframe src="@Url.Content("~/Content/lesson2/2.html")" style="width: 100%;height:630px;"></iframe>
+    </div>
+    <div style="float:left;width:500px;background: #fff;margin:10px;padding:10px;">
+        <iframe src="@Url.Content("~/Content/lesson2/2.css")" style="width: 100%;height:630px;"></iframe>
+    </div>
+</div>
+<div id="d3" class="display" style="display: none;">
+    <div style="float:left;width:500px;background: #fff;margin:10px;">
+        <iframe src="@Url.Content("~/Content/lesson2/3.html")" style="width: 100%;height:630px;"></iframe>
+    </div>
+    <div style="float:left;width:500px;background: #fff;margin:10px;padding:10px;">
+        <iframe src="@Url.Content("~/Content/lesson2/3.css")" style="width: 100%;height:630px;"></iframe>
+    </div>
+</div>
+<div style="clear: both;"></div>
+</div>
